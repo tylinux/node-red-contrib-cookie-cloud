@@ -1,0 +1,71 @@
+<script type="text/javascript">
+  RED.nodes.registerType("cookie-cloud", {
+    category: "function",
+    color: "#9eb8e3",
+    defaults: {
+      name: { value: "" },
+      protocol: { value: "http", required: true },
+      host: { value: "", required: true },
+      port: { value: 80, required: true },
+      uuid: { value: "", required: true },
+      password: { value: "", required: true, type: "password" },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "cookie-cloud.png",
+    label: function() {
+      return this.name || "Cookie Cloud";
+    }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="cookie-cloud">
+    <div class="form-row">
+        <label for="node-input-protocol"><i class="icon-tag"></i> Protocol</label>
+        <select type="text" id="node-input-protocol" style="width:70%;">
+            <option value="http">HTTP</option>
+            <option value="https">HTTPS</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-host"><i class="icon-tag"></i> Host</label>
+        <input type="text" id="node-input-host" placeholder="Host">
+    </div>
+    <div class="form-row">
+        <label for="node-input-port"><i class="icon-tag"></i> Port</label>
+        <input type="text" id="node-input-port" placeholder="Port">
+    </div>
+    <div class="form-row">
+        <label for="node-input-uuid"><i class="icon-tag"></i> UUID</label>
+        <input type="text" id="node-input-uuid" placeholder="UUID">
+    </div>
+    <div class="form-row">
+        <label for="node-input-password"><i class="icon-tag"></i> Password</label>
+        <input type="password" id="node-input-password" placeholder="Password">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="cookie-cloud">
+    <p>
+        CookieCloud is a small tool for synchronizing browser cookies and LocalStorage with a self-hosted server. It supports end-to-end encryption and allows for setting the synchronization interval.
+    </p>
+    <p>
+        <b>Protocol</b> - The protocol to use for the connection.
+    </p>
+    <p>
+        <b>Host</b> - The host of the server.
+    </p>
+    <p>
+        <b>Port</b> - The port of the server.
+    </p>
+    <p>
+        <b>UUID</b> - The UUID of the server.
+    </p>
+    <p>
+        <b>Password</b> - The password of the server.
+    </p>
+</script>
