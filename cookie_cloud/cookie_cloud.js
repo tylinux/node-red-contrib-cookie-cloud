@@ -9,14 +9,12 @@ module.exports = function (RED) {
         const port = config.port;
         const uuid = config.uuid;
         const password = config.password;
-        console.log(protocol, host, port, uuid, password);
         if (!protocol || !host || !port || !uuid || !password) {
           msg.payload = "Missing required fields";
           this.send(msg);
           return;
         }
         const url = `${protocol}://${host}:${port}/get/${uuid}`;
-        console.log(url);
         const response = await fetch(url, {
           method: "GET",
         });
